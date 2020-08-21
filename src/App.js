@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function UserGreeting() {
+  return <h1>Welcome back!</h1>;
 }
 
-export default App;
+function GuestGreeting() {
+  return <h1>Please sign up.</h1>;
+}
+
+function Greeting(props) {
+  console.log("this is app component", props);
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <UserGreeting />;
+  } else {
+    return <GuestGreeting />;
+  }
+}
+
+export default Greeting;
